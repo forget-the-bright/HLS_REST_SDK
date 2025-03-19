@@ -19,7 +19,7 @@
         <hutool.version>5.8.25</hutool.version>
         <poi.version>4.1.2</poi.version>
     </properties>
-    <description>GE数据库 REST SDK</description>
+    <description>HLS数据库 REST SDK</description>
     <url>https://github.com/forget-the-bright/GE_REST_SDK</url>
     <dependencyManagement>
         <dependencies>
