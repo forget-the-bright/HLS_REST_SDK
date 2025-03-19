@@ -102,7 +102,7 @@ public class ApiUtil {
      * 将 HDBTagValue 列表解析为以标签名称为键、BaseValue 列表为值的映射。
      *
      * <p>
-     * 该方法通过流式操作对 HDBTagValue 列表进行处理，使用 {@link HDBTagValue#getTagName()}
+     * 该方法通过流式操作对 HDBTagValue 列表进行处理，使用 {@link HDBTagValue}
      * 获取标签名称作为键，并调用 {@link #deConStructOneTagHdbTagValues(List, Function)} 方法
      * 将每个 HDBTagValue 的 OneTagHDBValue 列表转换为 BaseValue 列表作为值。
      * </p>
@@ -146,7 +146,7 @@ public class ApiUtil {
      * 将 DDBTagValue 列表解析为以标签名称为键、值为值的映射。
      *
      * <p>
-     * 该方法通过流式操作对 DDBTagValue 列表进行处理，使用 {@link DDBTagValue#getTagName()}
+     * 该方法通过流式操作对 DDBTagValue 列表进行处理，使用 {@link DDBTagValue}
      * 获取标签名称作为键，并提取对应的值进行修剪（去除首尾空白字符）作为值。
      * </p>
      *
