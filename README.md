@@ -1,9 +1,9 @@
-# GE REST SDK
+# HLS_REST_SDK
 
 ## 项目介绍
 
 ### 概述
-`GE_REST_SDK` 是一个用于与GE Proficy Historian工业时序数据库 进行交互的 RESTful API 软件开发工具包（SDK）。该 SDK 提供了一组封装好的 API 客户端和相关服务类，帮助开发者快速、高效地调用 GE 系统的各种功能接口。通过使用本 SDK，开发者可以轻松实现对数据收集器、报警系统、标签管理以及系统配置等模块的操作。
+`HLS_REST_SDK` 是一个用于与和利时 工业时序数据库 进行交互的 RESTful API 软件开发工具包（SDK）。该 SDK 提供了一组封装好的 API 客户端和相关服务类，帮助开发者快速、高效地调用 GE 系统的各种功能接口。通过使用本 SDK，开发者可以轻松实现对数据收集器、报警系统、标签管理以及系统配置等模块的操作。
 
 ### 主要功能
 1. **API 封装**：提供了一系列 API 客户端和枚举类，用于定义和调用 GE 系统的各个功能接口。
@@ -17,25 +17,21 @@
 ```pom
 <dependency>
     <groupId>io.github.forget-the-bright</groupId>
-    <artifactId>GE_REST_SDK</artifactId>
-    <version>1.0.3</version>
+    <artifactId>HLS_REST_SDK</artifactId>
+    <version>1.0.0</version>
 </dependency>
 ```
 ### springboot 配置
 ```yaml
-# GE Proficy Historian工业时序数据库 配置信息
-ge:
+# 和利时 工业时序数据库 配置信息
+hls:
   datacollection:
     #API服务基础地址
     base-url: https://XXX.XX.XXX.X
     #客户端身份标识
-    client-id: XXX_XX
+    userid: XXX_XX
     #客户端密钥
-    client-secret: XXX_XX
-    #接口认证用户名
-    username: XXX_XX
-    #接口认证密码
-    password: XXX_XX
+    secretkey: XXX_XX
     #链接超时时间（毫秒） -1 代表不限制超时
     connection-timeout: -1
     #读取超时时间（毫秒） -1 代表不限制超时
@@ -46,7 +42,7 @@ ge:
     cacheModel: Local
 ```
 ### Java Doc
-[GE_REST_SDK JavaDoc](https://javadoc.io/doc/io.github.forget-the-bright/GE_REST_SDK)
+[HLS_REST_SDK JavaDoc](https://javadoc.io/doc/io.github.forget-the-bright/HLS_REST_SDK)
 
 ## 项目模块及目录结构
 
@@ -66,67 +62,91 @@ ge:
 
 ### 目录结构
 ```cmd
-GE_REST_SDK\
-├── src\
-│   ├── main\
-│   │   ├── java\
-│   │   │   └── io\github\forget_the_bright\ge\
-│   │   │       ├── constant\
-│   │   │       │   ├── ApiModule.java
-│   │   │       │   ├── CalculationMode.java
-│   │   │       │   ├── CollectorsApiEnum.java
-│   │   │       │   ├── DataApiEnum.java
-│   │   │       │   ├── Direction.java
-│   │   │       │   ├── FilterMode.java
-│   │   │       │   ├── OAuthApiEnum.java
-│   │   │       │   ├── Quality.java
-│   │   │       │   ├── ReturnDataFields.java
-│   │   │       │   ├── SamplingMode.java
-│   │   │       │   ├── SystemsApiEnum.java
-│   │   │       │   └── TagsApiEnum.java
-│   │   │       ├── config\
-│   │   │       │   └── ApiConfig.java
-│   │   │       ├── core\
-│   │   │       │   ├── ApiClient.java
-│   │   │       │   └── ApiUtil.java
-│   │   │       ├── entity\
-│   │   │       │   ├── request\
-│   │   │       │   │   ├── alarm\
-│   │   │       │   │   │   ├── AlarmDeleteBackupEntity.java
-│   │   │       │   │   │   ├── AlarmNotificationInfoEntity.java
-│   │   │       │   │   │   └── AlarmQueryInfoEntity.java
-│   │   │       │   │   ├── collectors\
-│   │   │       │   │   │   └── CollectorEntity.java
-│   │   │       │   │   ├── data\
-│   │   │       │   │   │   ├── SampledEntity.java
-│   │   │       │   │   │   ├── TagDataCreationEntity.java
-│   │   │       │   │   │   └── TrendEntity.java
-│   │   │       │   │   ├── systems\
-│   │   │       │   │   │   ├── HistorianServerEntity.java
-│   │   │       │   │   │   └── HorizontalScalabilityEntity.java
-│   │   │       │   │   └── tags\
-│   │   │       │   │       └── TagCommentEntity.java
-│   │   │       │   └── response\
-│   │   │       │       └── BaseResult.java
-│   │   │       ├── exception\
-│   │   │       │   └── ApiException.java
-│   │   │       ├── service\
-│   │   │       │   ├── AlarmApiInvoker.java
-│   │   │       │   ├── CollectorsApiInvoker.java
-│   │   │       │   ├── DataApiInvoker.java
-│   │   │       │   ├── SystemsApiInvoker.java
-│   │   │       │   └── TagsApiInvoker.java
-│   │   │       └── utils\
-│   │   │           └── HaoUtil.java
-│   │   └── resources\
-│   │       └── application.properties
-│   └── test\
-│       └── java\
-│           └── io\github\forget_the_bright\ge\
-│               └── test\
-│                   └── ApiClientTest.java
-├── README.md
-└── pom.xml
+HLS_REST_SDK
+│  .gitignore
+│  LICENSE
+│  pom.xml
+│  README.md
+└─src
+    └─main
+        ├─java
+        │  └─io
+        │      └─github
+        │          └─forget_the_bright
+        │              │  Main.java
+        │              │
+        │              └─hls
+        │                  ├─annotation
+        │                  │      EnumParam.java
+        │                  │
+        │                  ├─config
+        │                  │      ApiConfig.java
+        │                  │      DataCollectionAutoConfiguration.java
+        │                  │      EnumDeserializer.java
+        │                  │      EnumParamArgumentResolver.java
+        │                  │      MilliSecondDateSerializer.java
+        │                  │      ResolverBeanPostProcessor.java
+        │                  │
+        │                  ├─constant
+        │                  │  │  DataApiEnum.java
+        │                  │  │  OAuthApiEnum.java
+        │                  │  │  TagsApiEnum.java
+        │                  │  │
+        │                  │  ├─attach
+        │                  │  │      ApiModule.java
+        │                  │  │      AuthScheme.java
+        │                  │  │      ParamPosition.java
+        │                  │  │
+        │                  │  └─common
+        │                  │          Quality.java
+        │                  │          StateCode.java
+        │                  │          TagType.java
+        │                  │
+        │                  ├─core
+        │                  │  │  ApiClient.java
+        │                  │  │  ApiUtil.java
+        │                  │  │  CacheHolder.java
+        │                  │  │  LocalTimedCacheHolder.java
+        │                  │  │  RedisCacheHolder.java
+        │                  │  │  TokenHolder.java
+        │                  │  │
+        │                  │  └─print
+        │                  │          PrintUtil.java
+        │                  │
+        │                  ├─entity
+        │                  │  ├─request
+        │                  │  │      HistorianRequest.java
+        │                  │  │      TagNameListRequest.java
+        │                  │  │      TagNameRequest.java
+        │                  │  │
+        │                  │  └─response
+        │                  │      │  DataResult.java
+        │                  │      │  DatasResult.java
+        │                  │      │  TagsResult.java
+        │                  │      │  TokenResult.java
+        │                  │      │
+        │                  │      └─base
+        │                  │              BaseResult.java
+        │                  │              BaseValue.java
+        │                  │              DDBTagValue.java
+        │                  │              DDBTagValueList.java
+        │                  │              HDBTagValue.java
+        │                  │              HDBTagValueList.java
+        │                  │              OneTagHDBValue.java
+        │                  │              TagName.java
+        │                  │              TagNameList.java
+        │                  │              TokenData.java
+        │                  │
+        │                  ├─exception
+        │                  │      ApiException.java
+        │                  │
+        │                  └─service
+        │                          HLSApiInvoker.java
+        │
+        └─resources
+            └─META-INF
+                    spring.factories
+
 
 ```
 
@@ -150,116 +170,31 @@ GE_REST_SDK\
   - `getSecondaryParamPositionFromEnum(Enum<?> apiEnum)`：从枚举中获取次参数位置。
   - `getReturnType(Enum<?> apiEnum)`：从枚举中获取返回类型。
 
-### `AlarmApiInvoker.java`
-- **功能**：报警服务 API 调用器，提供报警服务的相关操作接口。
+### `HLSApiInvoker.java`
+- **功能**：提供调用 HLS API 的工具类。
 - **方法**：
-  - `createBackUp(AlarmDeleteBackupEntity entity)`：创建报警备份。
-  - `createAlarms(AlarmNotificationInfoEntity entity)`：创建新报警。
-  - `deleteAlarms(AlarmDeleteBackupEntity entity)`：删除指定报警。
-  - `queryAlarmsByParam(AlarmQueryInfoEntity query)`：根据条件查询报警。
-  - `restoreAlarmsBackUp(String path)`：从备份恢复报警。
+  - `queryAllTags()`：查询所有标签。
+  - `getDDBTagValue(TagNameListRequest tagNameListRequest)`：获取 DDB 标签值。
+  - `getHDBTagValue(HistorianRequest historianRequest)`：获取 HDB 标签值。
+  - `getHDBTagValue(Date startTime, Date endTime, Boolean needQueryBound, Boolean needQueryAVG, Boolean needQueryMIN, Boolean needQueryMAX, Long intervalBySecond, String... tagNames)`：获取 HDB 标签值。
+  - `getHDBTagValueBound(Date startTime, Date endTime, Long intervalBySecond, String... tagNames)`：获取 HDB 标签的边界值。
+  - `getHDBTagValueBound(Date startTime, Date endTime, Long intervalBySecond, Collection<String> tagNames)`：获取 HDB 标签的边界值。
+  - `getHDBTagValueMax(Date startTime, Date endTime, Long intervalBySecond, Collection<String> tagNames)`：获取 HDB 标签的最大值。
+  - `getHDBTagValueMax(Date startTime, Date endTime, Long intervalBySecond, String... tagNames)`：获取 HDB 标签的最大值。
+  - `getHDBTagValueMin(Date startTime, Date endTime, Long intervalBySecond, Collection<String> tagNames)`：获取 HDB 标签的最小值。
+  - `getHDBTagValueMin(Date startTime, Date endTime, Long intervalBySecond, String... tagNames)`：获取 HDB 标签的最小值。
+  - `getHDBTagValueAvg(Date startTime, Date endTime, Long intervalBySecond, Collection<String> tagNames)`：获取 HDB 标签的平均值。
+  - `getHDBTagValueAvg(Date startTime, Date endTime, Long intervalBySecond, String... tagNames)`：获取 HDB 标签的平均值。
+  - `getHDBTagValueAll(Date startTime, Date endTime, Long intervalBySecond, String... tagNames)`：获取 HDB 标签的所有值。
+  - `getHDBTagValueAll(Date startTime, Date endTime, Long intervalBySecond, Collection<String> tagNames)`：获取 HDB 标签的所有值。
 
-### `CollectorsApiInvoker.java`
-- **功能**：收集器服务 API 调用器，提供收集器服务的相关操作接口。
+### `ApiUtil.java`
+- **功能**：提供与 API 交互的实用工具方法。
 - **方法**：
-  - `setAzureLogLevel(CollectorEntity body)`：设置 Azure 调试信息日志级别。
-  - `bufferControl(CollectorEntity body)`：删除或移动缓冲区文件。
-  - `createNewInstance(String body)`：创建收集器实例。
-  - `deleteCollectorInstance(CollectorEntity body)`：删除收集器实例。
-  - `deleteOfflineInstance(CollectorEntity body)`：删除离线收集器实例。
-  - `collectorDetails()`：查看收集器详细信息。
-  - `editInstance(String body)`：更新收集器实例。
-  - `historianNodeChange(CollectorEntity body)`：更新收集器的服务器节点。
-  - `instanceDetails(String interfaceName)`：获取收集器实例详细信息。
-  - `messageCompression(CollectorEntity body)`：启用或禁用消息压缩。
-  - `collectorRunningMode(String interfaceName)`：查看收集器运行模式。
-  - `pauseCollection(String interfaceName)`：暂停收集器数据收集。
-  - `rebuildCollectorsList(String interfaceName)`：重建收集器列表。
-  - `restartCollector(CollectorEntity body)`：重新启动收集器。
-  - `resumeCollection(String interfaceName)`：恢复收集器数据收集。
-  - `setDebugMode(CollectorEntity body)`：设置收集器调试模式。
-  - `startCollector(CollectorEntity body)`：启动收集器。
-  - `collectorStatus(String interfaceName)`：获取收集器状态。
-  - `stopCollector(CollectorEntity body)`：停止收集器。
-  - `collectorVersion(String interfaceName)`：获取收集器的版本号。
-  - `collectorVersionByPath(String interfaceName)`：获取收集器的版本号（路径参数）。
-  - `collectorManagerList()`：获取收集器关联的代理机器列表。
-  - `installComponentDetails(String collectorType, String collectorSubType, String machine)`：获取收集器所在计算机安装组件的详细信息。
-  - `localOpcAeServers(String machine)`：获取指定机器上安装的 OPC 警报和事件服务器列表。
-  - `localOpcHdaServers(String machine)`：查看指定机器上安装的 OPC HDA 服务器列表。
-  - `localOpcServers(String machine)`：查看指定机器上安装的 OPC 服务器列表。
-  - `offlineCollectors()`：获取离线收集器列表。
-
-### `DataApiInvoker.java`
-- **功能**：数据服务 API 调用器，提供数据服务的相关操作接口。
-- **方法**：
-  - `getCalculatedByRequestParam(String tagNames, Integer count, Date start, Date end, CalculationMode calculationMode, Long intervalMs)`：根据请求参数获取计算结果。
-  - `getCalculatedByRequestParamPost(TagNamesEntity tagNamesEntity, Integer count, Date start, Date end, CalculationMode calculationMode, Long intervalMs)`：通过请求参数和请求体获取计算数据。
-  - `getCalculatedByPathVariablePost(TagNamesEntity tagNamesEntity, Date start, Date end, CalculationMode calculationMode, Integer count, Long intervalMs)`：通过路径变量和请求体获取计算数据。
-  - `getCalculatedByPathVariable(String tagNames, Date start, Date end, CalculationMode calculationMode, Integer count, Long intervalMs)`：通过路径变量获取计算数据。
-  - `configureQueryResultByRequestParam(Integer maxDataQueryResultSize)`：根据请求参数配置查询结果。
-  - `configureQueryResultByPathVariable(Integer maxDataQueryResultSize)`：根据路径变量配置查询结果。
-  - `createTagData(TagDataCreationEntity tagDataCreationEntity)`：创建数据点位标签数据。
-  - `getCurrentValueByRequestParam(String tagNames)`：根据请求参数查询当前值数据。
-  - `getCurrentValuePost(TagNamesEntity tagNamesEntity)`：查询当前值数据。
-  - `getCurrentValueByPathVariable(String tagNames)`：根据路径变量查询当前值数据。
-  - `getInterpolatedByRequestParam(String tagNames, Date start, Date end, Integer count, Long intervalMs)`：根据请求参数查询标签列表的插值。
-  - `getInterpolatedByRequestParamPost(TagNamesEntity tagNamesEntity, Date start, Date end, Integer count, Long intervalMs)`：查询标签列表的插值。
-  - `getInterpolatedByPathVariablePost(TagNamesEntity tagNamesEntity, Date start, Date end, Integer count, Long intervalMs)`：查询标签列表的插值。
-  - `getInterpolatedByPathVariable(String tagNames, Date start, Date end, Integer count, Long intervalMs)`：根据路径变量查询标签列表的插值。
-  - `getRawDataByRequestParam(String tagNames, Date start, Date end, Direction direction, Integer count)`：根据请求参数查询原始数据。
-  - `getRawDataByRequestParamPost(TagNamesEntity tagNamesEntity, Date start, Date end, Direction direction, Integer count)`：查询原始数据。
-  - `getRawDataByPathVariablePost(TagNamesEntity tagNamesEntity, Date start, Date end, Direction direction, Integer count)`：查询原始数据。
-  - `getRawDataByPathVariable(String tagNames, Date start, Date end, Direction direction, Integer count)`：根据路径变量查询原始数据。
-  - `getSampledByRequestParam(CalculationMode calculationMode, Integer count, Direction direction, Date end, String filterExpression, FilterMode filterMode, Long intervalMs, Long queryModifier, ReturnDataFields returnDataFields, SamplingMode samplingMode, Date start, String tagNames)`：根据请求参数获取采样数据。
-  - `getSampledByRequestParamPost(SampledEntity sampledEntity)`：查询采样数据。
-  - `getTrendDataByRequestParam(CalculationMode calculationMode, Integer count, Direction direction, Date end, String filterExpression, FilterMode filterMode, Long intervalMs, Long queryModifier, SamplingMode samplingMode, Date start, String statisticsItemFilter, String tagNames)`：根据请求参数获取趋势数据。
-  - `getTrendDataByRequestParamPost(TrendEntity trendEntity)`：查询趋势数据。
-
-
-### `SystemsApiInvoker.java`
-- **功能**：系统服务 API 调用器，提供系统服务的相关操作接口。
-- **方法**：
-  - `updateDataStore(String dataStoreName, String body)`：更新数据存储。
-  - `deleteDataStore(HorizontalScalabilityEntity body)`：删除数据存储。
-  - `getDataStores(String dataStoreMask)`：获取数据存储列表。
-  - `addDataStore(HorizontalScalabilityEntity body)`：添加数据存储。
-  - `getDhsMachines(String storageName)`：获取 DHS 机器列表。
-  - `updateDhsService(String dHSServiceName, String body)`：更新 DHS 服务信息。
-  - `getDhsServices(String dHSServiceMask, Boolean withReason)`：获取 DHS 服务列表。
-  - `getServers(String loginuser)`：获取指定用户下的服务器信息。
-  - `addHistorianServer(HistorianServerEntity body)`：添加服务器并归当前用户管理。
-  - `deleteHistorianServer(HistorianServerEntity body)`：删除服务器。
-  - `modifyHistorianServer(HistorianServerEntity body)`：修复服务器。
-  - `getServerType()`：获取服务器类型信息。
-  - `addMachine(HorizontalScalabilityEntity body)`：添加机器。
-  - `deleteMachine(HorizontalScalabilityEntity body)`：删除机器。
-  - `createMirrorGroup(HorizontalScalabilityEntity body)`：创建镜像组。
-  - `renameMirrorGroup(HorizontalScalabilityEntity body)`：更新镜像组。
-  - `deleteMirrorGroup(HorizontalScalabilityEntity body)`：删除镜像组。
-  - `addMirrorMachine(HorizontalScalabilityEntity body)`：添加镜像机器。
-  - `removeMirrorMachine(HorizontalScalabilityEntity body)`：删除镜像机器。
-  - `getPerfTagData(String perfTagName, String perfTagType, String name, Date start, Date end, Long intervalMs)`：获取系统的读取速率和接收速率。
-  - `getServerProperties()`：获取服务器属性列表。
-  - `getDataStoresByStorage(String storageName)`：获取数据存储列表。
-  - `updateDefaultDataStore(String storageName, String body)`：更新默认数据存储。
-  - `getStorages(String storageMask)`：获取存储位置列表。
-  - `getSystemStats()`：获取系统统计信息。
-
-### `TagsApiInvoker.java`
-- **功能**：标签服务 API 调用器，提供标签服务的相关操作接口。
-- **方法**：
-  - `queryTagsByParams(int maxNumber, String nameMask)`：根据指定参数查询标签列表。
-  - `queryTagsByPath(int maxNumber, String nameMask)`：根据指定参数查询标签列表。
-  - `addTagComment(TagCommentEntity tagCommentEntity)`：添加标签注释。
-  - `addSingleTag(String tagName)`：添加单个标签。
-  - `addBatchTags(String tagNames)`：批量添加标签。
-  - `getCommentsByQuery(Date begin, Date end, String tagNames)`：根据查询条件获取标签注释。
-  - `getCommentsByPath(Date begin, Date end, String tagNames)`：根据路径参数获取标签注释。
-  - `getTagPropertiesPath(String tagName)`：根据路径参数获取标签属性。
-  - `getTagPropertiesPathBody(String tagName, String body)`：根据路径参数和请求体获取标签属性。
-  - `updateTagProperties(String tagName, String body)`：更新标签属性。
-  - `renameTag(Boolean truerename, String oldTagName, String newTagName)`：重命名标签。
-  - `deleteTag(Boolean permanentDelete, String tagName)`：删除指定标签。
-  - `advancedSearchTags(String calctype, String collectiondisabled, String collectioninterval, String collectorcompression, String collectorname, String collectortype, String comment, String datastorename, String datatype, String description, String egudescription, String enumeratedset, String hasalias, String isstale, String lastmodified, String lastmodifieduser, String numberofelements, String pageno, String pagesize, String sourceaddress, String tagname, String userdefinedtypename)`：执行标签列表高级查询。
-
+  - `isNullExec(T obj, Function<T, R> func)`：如果对象为 null 或空，则返回 null；否则执行给定的函数并返回其结果。
+  - `isNullExec(T obj, Consumer<T> func)`：如果对象不为 null 或空，则执行给定的消费者函数。
+  - `isNullExec(T obj, Supplier<R> func)`：如果对象不为 null 或空，则执行给定的提供者函数并返回其结果；否则返回 null。
+  - `deConStructDatasResult(DatasResult datasResult, Function<OneTagHDBValue, String> getMethod)`：将 DatasResult 对象中的 HDBTagValue 列表解析为以标签名称为键、BaseValue 列表为值的映射。
+  - `deConStructHdbTagValues(List<HDBTagValue> hdbTagValueList, Function<OneTagHDBValue, String> getMethod)`：将 HDBTagValue 列表解析为以标签名称为键、BaseValue 列表为值的映射。
+  - `deConStructOneTagHdbTagValues(List<OneTagHDBValue> oneTagHDBValueList, Function<OneTagHDBValue, String> getMethod)`：将 OneTagHDBValue 列表解析为 BaseValue 列表。
+  - `deConStructDdbTagValueList(List<DDBTagValue> ddbTagValueList)`：将 DDBTagValue 列表解析为以标签名称为键、值为值的映射。

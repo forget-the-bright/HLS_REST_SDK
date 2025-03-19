@@ -28,8 +28,13 @@ public class HDBTagValue {
     /**
      * 标签类型。
      */
-    @JSONField(name = "TagType",deserializeUsing = EnumDeserializer.class)
+    @JSONField(name = "TagType", deserializeUsing = EnumDeserializer.class)
     private TagType tagType;
+
+    /**
+     * 标签名称。
+     */
+    private String tagName;
 
     /**
      * 单个标签的历史数据值列表。

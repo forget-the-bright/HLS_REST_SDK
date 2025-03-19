@@ -6,7 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 /**
  * API 配置信息实体类，用于绑定配置文件中的数据中心相关配置参数
  *
- * <p>通过 @ConfigurationProperties 注解绑定以 ge.datacollection 为前缀的配置项，
+ * <p>通过 @ConfigurationProperties 注解绑定以 hls.datacollection 为前缀的配置项，
  * 支持从 application.yml/properties 等配置文件注入属性值</p>
  *
  * @author wanghao
@@ -37,9 +37,9 @@ public class ApiConfig {
 
     /**
      * 访问令牌有效期（单位：秒）
-     * <p>默认43199秒（约12小时），控制认证令牌的有效时长</p>
+     * <p>默认1800秒（约半小时），控制认证令牌的有效时长</p>
      */
-    private long tokenExpireSeconds = 43199L;
+    private long tokenExpireSeconds = 1800L;
 
     /**
      * 读取超时时间（毫秒）

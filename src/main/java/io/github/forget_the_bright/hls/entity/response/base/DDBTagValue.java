@@ -27,7 +27,7 @@ public class DDBTagValue {
     /**
      * 标签的质量。
      */
-    @JSONField(name = "Quality",deserializeUsing = EnumDeserializer.class)
+    @JSONField(name = "Quality", deserializeUsing = EnumDeserializer.class)
     private Quality quality;
 
     /**
@@ -39,7 +39,7 @@ public class DDBTagValue {
     /**
      * 标签的类型。
      */
-    @JSONField(name = "TagType",deserializeUsing = EnumDeserializer.class)
+    @JSONField(name = "TagType", deserializeUsing = EnumDeserializer.class)
     private TagType tagType;
 
     /**
@@ -52,7 +52,12 @@ public class DDBTagValue {
      * 标签值的时间戳。
      * 时间格式为 "yyyy-MM-dd HH:mm:ss"，时区为 GMT+8。
      */
-    @JSONField(name = "TagValueTime",deserializeUsing = MilliSecondDateSerializer.class)
+    @JSONField(name = "TagValueTime", deserializeUsing = MilliSecondDateSerializer.class)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date tagValueTime;
+
+    /**
+     * 标签名称
+     */
+    private String tagName;
 }
