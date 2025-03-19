@@ -174,19 +174,19 @@ HLS_REST_SDK
 - **功能**：提供调用 HLS API 的工具类。
 - **方法**：
   - `queryAllTags()`：查询所有标签。
-  - `getDDBTagValue(TagNameListRequest tagNameListRequest)`：获取 DDB 标签值。
-  - `getHDBTagValue(HistorianRequest historianRequest)`：获取 HDB 标签值。
-  - `getHDBTagValue(Date startTime, Date endTime, Boolean needQueryBound, Boolean needQueryAVG, Boolean needQueryMIN, Boolean needQueryMAX, Long intervalBySecond, String... tagNames)`：获取 HDB 标签值。
-  - `getHDBTagValueBound(Date startTime, Date endTime, Long intervalBySecond, String... tagNames)`：获取 HDB 标签的边界值。
-  - `getHDBTagValueBound(Date startTime, Date endTime, Long intervalBySecond, Collection<String> tagNames)`：获取 HDB 标签的边界值。
-  - `getHDBTagValueMax(Date startTime, Date endTime, Long intervalBySecond, Collection<String> tagNames)`：获取 HDB 标签的最大值。
-  - `getHDBTagValueMax(Date startTime, Date endTime, Long intervalBySecond, String... tagNames)`：获取 HDB 标签的最大值。
-  - `getHDBTagValueMin(Date startTime, Date endTime, Long intervalBySecond, Collection<String> tagNames)`：获取 HDB 标签的最小值。
-  - `getHDBTagValueMin(Date startTime, Date endTime, Long intervalBySecond, String... tagNames)`：获取 HDB 标签的最小值。
-  - `getHDBTagValueAvg(Date startTime, Date endTime, Long intervalBySecond, Collection<String> tagNames)`：获取 HDB 标签的平均值。
-  - `getHDBTagValueAvg(Date startTime, Date endTime, Long intervalBySecond, String... tagNames)`：获取 HDB 标签的平均值。
-  - `getHDBTagValueAll(Date startTime, Date endTime, Long intervalBySecond, String... tagNames)`：获取 HDB 标签的所有值。
-  - `getHDBTagValueAll(Date startTime, Date endTime, Long intervalBySecond, Collection<String> tagNames)`：获取 HDB 标签的所有值。
+  - `getDDBTagValue(TagNameListRequest tagNameListRequest)`：获取 实时库 标签值。
+  - `getHDBTagValue(HistorianRequest historianRequest)`：获取 历史库 标签值。
+  - `getHDBTagValue(Date startTime, Date endTime, Boolean needQueryBound, Boolean needQueryAVG, Boolean needQueryMIN, Boolean needQueryMAX, Long intervalBySecond, String... tagNames)`：获取 历史库 标签值列表。
+  - `getHDBTagValueBound(Date startTime, Date endTime, Long intervalBySecond, String... tagNames)`：获取 历史库 标签的边界值列表。
+  - `getHDBTagValueBound(Date startTime, Date endTime, Long intervalBySecond, Collection<String> tagNames)`：获取 历史库 标签的边界值列表。
+  - `getHDBTagValueMax(Date startTime, Date endTime, Long intervalBySecond, Collection<String> tagNames)`：获取 历史库 标签的最大值列表。
+  - `getHDBTagValueMax(Date startTime, Date endTime, Long intervalBySecond, String... tagNames)`：获取 历史库 标签的最大值列表。
+  - `getHDBTagValueMin(Date startTime, Date endTime, Long intervalBySecond, Collection<String> tagNames)`：获取 历史库 标签的最小值列表。
+  - `getHDBTagValueMin(Date startTime, Date endTime, Long intervalBySecond, String... tagNames)`：获取 历史库 标签的最小值列表。
+  - `getHDBTagValueAvg(Date startTime, Date endTime, Long intervalBySecond, Collection<String> tagNames)`：获取 历史库 标签的平均值列表。
+  - `getHDBTagValueAvg(Date startTime, Date endTime, Long intervalBySecond, String... tagNames)`：获取 历史库 标签的平均值列表。
+  - `getHDBTagValueAll(Date startTime, Date endTime, Long intervalBySecond, String... tagNames)`：获取 历史库 标签的所有值列表。
+  - `getHDBTagValueAll(Date startTime, Date endTime, Long intervalBySecond, Collection<String> tagNames)`：获取 历史库 标签的所有值列表。
 
 ### `ApiUtil.java`
 - **功能**：提供与 API 交互的实用工具方法。
