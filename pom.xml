@@ -86,14 +86,14 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <scope>provided</scope>
-<!--            <optional>true</optional>-->
+            <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <optional>true</optional>
-<!--            <scope>provided</scope>-->
+            <scope>provided</scope>
             <version>${hutool.version}</version>
         </dependency>
 
@@ -117,7 +117,7 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.59</version>
             <optional>true</optional>
-<!--            <scope>provided</scope>-->
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -125,7 +125,7 @@
             <artifactId>swagger-annotations</artifactId>
             <version>${swagger.core.version}</version>
             <optional>true</optional>
-<!--            <scope>provided</scope>-->
+            <scope>provided</scope>
         </dependency>
 
 
@@ -134,7 +134,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
             <optional>true</optional>
-<!--            <scope>provided</scope>-->
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
